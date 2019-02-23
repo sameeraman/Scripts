@@ -2,7 +2,7 @@
 
 This script provisions the Azure Resources needed for the Azure VWAN Lab. It provisions Azure VWAN Resources, Virtual Networks and a Virtual Machine. 
 
-The completed solution will like below.
+The completed solution will like below:
 
 ![resourceslist](images/vwandiagram.png "Azure VWAN Diagram")
 
