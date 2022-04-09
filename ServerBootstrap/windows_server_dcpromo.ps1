@@ -18,7 +18,7 @@ Install-windowsfeature -name DNS -IncludeManagementTools
 
 $password = ConvertTo-SecureString $dcpassword -AsPlainText -Force
 Import-Module ADDSDeployment
-Install-ADDSForest -CreateDnsDelegation:$false -DomainMode "WinThreshold" -DomainName $domainname -ForestMode "WinThreshold" -InstallDns:$true -NoRebootOnCompletion:$true -SafeModeAdministratorPassword $password -Force:$true 
+Install-ADDSForest -CreateDnsDelegation:$false -DomainMode "WinThreshold" -DomainName $domainname -ForestMode "WinThreshold" -InstallDns:$true -NoRebootOnCompletion:$false -SafeModeAdministratorPassword $password -Force:$true 
 
 
 # Create the OU's
@@ -32,7 +32,3 @@ New-ADUser -Name "Katy Perry" -GivenName "Katy" -Surname "Perry" -SamAccountName
 # Create Service Accounts
 New-ADUser -Name "SQL Service" -GivenName "SQL" -Surname "Service" -SamAccountName "sql.svc" -UserPrincipalName "sql.svc@$domainname" -Path "CN=Managed Service Accounts,$baseDN" -AccountPassword $password  -Enabled $true -PasswordNeverExpires $true
 
-
-
-
-shutdown -r -t 10
