@@ -2,6 +2,9 @@ Param (
     [string]$domainname
 )
 
+# Run the Server base bootstrap script
+.\windows_server_base.ps1
+
 
 #Set Execution Policy to allow script to run
 Set-ExecutionPolicy Bypass -Scope Process -Force 
